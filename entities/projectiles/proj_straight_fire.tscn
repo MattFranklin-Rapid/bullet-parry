@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ex26f3b8oatt"]
+
+[ext_resource type="SpriteFrames" uid="uid://hufhfds140le" path="res://sprites/animated/projectile/straight fire/straight_fire.tres" id="1_3emdu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u1dtm"]
+radius = 3.04138
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 0)
+rotation = 1.5708
+sprite_frames = ExtResource("1_3emdu")
+frame = 2
+frame_progress = 0.00982775
+
+[node name="Collision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(6, -0.5)
+shape = SubResource("CircleShape2D_u1dtm")

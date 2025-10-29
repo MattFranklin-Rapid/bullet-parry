@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4kyj8d0l0sqm"]
+
+[ext_resource type="Script" uid="uid://crmb67ifvlbog" path="res://entities/parry_wall.gd" id="1_7fys1"]
+[ext_resource type="Texture2D" uid="uid://dlxc502vawkyu" path="res://sprites/wall.png" id="1_o2fmp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fys1"]
+size = Vector2(98, 18)
+
+[node name="ParryWall" type="Node2D"]
+script = ExtResource("1_7fys1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.57079
+texture = ExtResource("1_o2fmp")
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = -1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_7fys1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

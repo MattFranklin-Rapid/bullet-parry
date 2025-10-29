@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl1yrjwcceajc"]
+
+[ext_resource type="Script" uid="uid://juxbtslwtvig" path="res://testPorjectile.gd" id="1_2hxsy"]
+[ext_resource type="Script" uid="uid://dr52doktfplel" path="res://addons/all_projectiles/scripts/main/projectile_caller_2d.gd" id="1_ov40w"]
+[ext_resource type="Script" uid="uid://dhkmxwdl7x2fl" path="res://addons/all_projectiles/scripts/resources/projectile_blueprint_2d.gd" id="2_5lkq0"]
+[ext_resource type="Texture2D" uid="uid://bbm8o7e71roqc" path="res://sprites/someguy.png" id="5_23i2j"]
+[ext_resource type="Resource" uid="uid://1308sq7re45b" path="res://entities/projectiles/straight_fire.tres" id="5_xmyc5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("1_2hxsy")
+
+[node name="ProjectileCaller2D" type="Node2D" parent="Node2D"]
+script = ExtResource("1_ov40w")
+projectile_resources = Array[ExtResource("2_5lkq0")]([ExtResource("5_xmyc5")])
+metadata/_custom_type_script = "uid://dr52doktfplel"
+
+[node name="parryCooldown" type="Timer" parent="Node2D"]
+wait_time = 0.25
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("5_23i2j")
+
+[connection signal="timeout" from="Node2D/parryCooldown" to="Node2D" method="_on_parry_cooldown_timeout"]

@@ -77,7 +77,8 @@ func _add_projectile(_resource: ProjectileBlueprint2D, _position: Vector2, _dire
 		projectiles[projectiles.size() - 1].projectile_requested.connect(add_projectiles_resource)
 		projectile_array_expanded.emit()
 	
-
+func get_projectile (index: int) -> Projectile2D:
+	return projectiles[index]
 
 
 func _process(delta: float) -> void:

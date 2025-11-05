@@ -24,7 +24,8 @@ func request_projectile(index: int, _position: Vector2, destination: Vector2, ta
 	move_method, start_method, collision_method, expired_method)
 	return true
  
-
+func get_projectile(index: int) -> Projectile2D:
+	return projectile_processor.get_projectile(index)
 
  
 func validate_request(index: int) -> bool:

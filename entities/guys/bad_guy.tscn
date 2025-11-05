@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba6u88xetkh8n"]
+
+[ext_resource type="Script" uid="uid://677304ce7rum" path="res://entities/guys/bad_guy_collision.gd" id="1_8brh0"]
+[ext_resource type="Texture2D" uid="uid://bbm8o7e71roqc" path="res://sprites/someguy.png" id="1_48b6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8brh0"]
+size = Vector2(42, 66)
+
+[node name="BadGuy" type="Node2D" groups=["step"]]
+script = ExtResource("1_8brh0")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 96
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_8brh0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_48b6v")

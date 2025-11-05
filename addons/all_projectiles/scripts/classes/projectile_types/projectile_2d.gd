@@ -182,7 +182,7 @@ func disable() -> void:
 
 func seek_target(_delta: float) -> float:
 	var clamped_angle: float = clampf(direction.angle_to((target.global_position - position).normalized()), 
-							   -deg_to_rad(angular_speed * _delta), deg_to_rad(angular_speed * _delta))
+								-deg_to_rad(angular_speed * _delta), deg_to_rad(angular_speed * _delta))
 	
 	direction = direction.rotated(clamped_angle)
 
@@ -225,7 +225,6 @@ func validate_target(collider: Node) -> Node:
 		return validate_target(collider.get_parent())
 	else:
 		return collider
-
 
 
 func on_pierced(pierced_rid: RID) -> void:
